@@ -15,10 +15,8 @@ public class MainActivity extends AppCompatActivity {
 
     private TextInputLayout Input_layout_num;
     private TextInputLayout Input_layout_texto;
-
     private TextInputEditText Input_text_num;
     private TextInputEditText Input_text_texto;
-
     private Button enviar;
 
     @Override
@@ -28,7 +26,6 @@ public class MainActivity extends AppCompatActivity {
 
         Input_layout_num = findViewById(R.id.Input_layout_num);
         Input_layout_texto = findViewById(R.id.input_layout_texto);
-
         Input_text_num = findViewById(R.id.input_text_num);
         Input_text_texto = findViewById(R.id.input_text_texto);
 
@@ -38,18 +35,18 @@ public class MainActivity extends AppCompatActivity {
         enviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String telefone = Input_text_num.getText().toString();
+                String fone = Input_text_num.getText().toString();
                 String texto = Input_text_texto.getText().toString();
 
-                String url = formatoUrl(telefone, texto);
+                String url = formatoUrl(fone, texto);
 
                 enviar(url);
             }
 
-            public String formatoUrl(String telefone, String texto) {
+            public String formatoUrl(String fone, String texto) {
                 texto = texto.replace(" ", " %20");
 
-                String link = "https://wa.me/" + telefone + "?text=" + texto;
+                String link = "https://wa.me/" + fone + "?text=" + texto;
                 return link;
             }
 
